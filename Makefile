@@ -114,9 +114,3 @@ switch-to-poetry: ## Switch to poetry package manager.
 .PHONY: init
 init:             ## Initialize the project based on an application template.
 	@./.github/init.sh
-
-
-# This project has been generated from asrulsibaoel/python-project-template
-# __author__ = 'asrulsibaoel'
-# __repo__ = https://github.com/asrulsibaoel/python-project-template
-# __sponsor__ = https://github.com/sponsors/asrulsibaoel/
