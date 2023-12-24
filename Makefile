@@ -98,7 +98,7 @@ switch-to-poetry: ## Switch to poetry package manager.
 	@echo "Switching to poetry ..."
 	@if ! poetry --version > /dev/null; then echo 'poetry is required, install from https://python-poetry.org/'; exit 1; fi
 	@rm -rf .venv
-	@poetry init --no-interaction --name=a_flask_test --author=rochacbruno
+	@poetry init --no-interaction --name=a_flask_test --author=asrulsibaoel
 	@echo "" >> pyproject.toml
 	@echo "[tool.poetry.scripts]" >> pyproject.toml
 	@echo "gmaps_scrapper = 'gmaps_scrapper.__main__:main'" >> pyproject.toml
@@ -116,7 +116,7 @@ init:             ## Initialize the project based on an application template.
 	@./.github/init.sh
 
 
-# This project has been generated from rochacbruno/python-project-template
-# __author__ = 'rochacbruno'
-# __repo__ = https://github.com/rochacbruno/python-project-template
-# __sponsor__ = https://github.com/sponsors/rochacbruno/
+# This project has been generated from asrulsibaoel/python-project-template
+# __author__ = 'asrulsibaoel'
+# __repo__ = https://github.com/asrulsibaoel/python-project-template
+# __sponsor__ = https://github.com/sponsors/asrulsibaoel/
