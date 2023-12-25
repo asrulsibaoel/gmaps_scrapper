@@ -4,6 +4,9 @@ import os
 from setuptools import find_packages, setup
 
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+
 def read(*paths, **kwargs):
     """Read the contents of a text file safely.
     >>> read("gmaps_scrapper", "VERSION")
@@ -24,7 +27,7 @@ def read(*paths, **kwargs):
 def read_requirements(path):
     return [
         line.strip()
-        for line in read(path).split("\n")
+        for line in read(os.path.join(dir_path, path)).split("\n")
         if not line.startswith(('"', "#", "-", "git+"))
     ]
 
@@ -38,6 +41,7 @@ setup(
     long_description_content_type="text/markdown",
     author="asrulsibaoel",
     packages=find_packages(exclude=["tests", ".github"]),
+    package_data={"": ["requirements.txt"]},
     install_requires=read_requirements("requirements.txt"),
     entry_points={
         "console_scripts": ["gmaps_scrapper = gmaps_scrapper.__main__:main"]

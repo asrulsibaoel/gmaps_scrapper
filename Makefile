@@ -87,6 +87,13 @@ release:          ## Create a new tag for release.
 	@git push -u origin HEAD --tags
 	@echo "Github Actions will detect the new tag and release the new version."
 
+.PHONY: build
+build:
+	@echo "-=[ Building package ... ]=-"
+	@rm -rf dist
+	@rm -rf ./**/__pycache__
+	@python -m build
+
 .PHONY: docs
 docs:             ## Build the documentation.
 	@echo "building documentation ..."
