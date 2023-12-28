@@ -1,6 +1,10 @@
 """Entry point for gmaps_scrapper."""
 
-from gmaps_scrapper.cli import main  # pragma: no cover
+import argparse
+
+from termcolor import colored
+
+from gmaps_scrapper.scrapper import test_app
 
 if __name__ == "__main__":  # pragma: no cover
-    main()
+    test_app()

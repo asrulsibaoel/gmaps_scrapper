@@ -5,5 +5,9 @@
 # You can also run `make switch-to-poetry` to use the poetry package manager.
 selenium
 beautifulsoup4
-webdriver
 webdriver-manager
+termcolor
+
+numpy
+pandas
+pymongo

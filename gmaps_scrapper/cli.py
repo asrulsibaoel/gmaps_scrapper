@@ -1,28 +1,54 @@
-"""CLI interface for gmaps_scrapper project.
+# -*- coding: utf-8 -*-
 
-Be creative! do whatever you want!
-
-- Install click or typer and create a CLI app
-- Use builtin argparse
-- Start a web application
-- Import things from your .base module
-"""
+import csv
+from typing import Optional
 
 
-def main():  # pragma: no cover
+ind = {"most_relevant": 0, "newest": 1, "highest_rating": 2, "lowest_rating": 3}
+HEADER = [
+    "id_review",
+    "caption",
+    "relative_date",
+    "retrieval_date",
+    "rating",
+    "username",
+    "n_review_user",
+    "n_photo_user",
+    "url_user",
+]
+HEADER_W_SOURCE = [
+    "id_review",
+    "caption",
+    "relative_date",
+    "retrieval_date",
+    "rating",
+    "username",
+    "n_review_user",
+    "n_photo_user",
+    "url_user",
+    "url_source",
+]
+
+
+def csv_writer(source_field: Optional[str], ind_sort_by: str, path: str = "data/"):
+    """Write the result into CSV file.
+
+    Args:
+        source_field (Optional[str]): _description_
+        ind_sort_by (str): _description_
+        path (str, optional): _description_. Defaults to 'data/'.
+
+    Returns:
+        _type_: _description_
     """
-    The main function executes on commands:
-    `python -m gmaps_scrapper` and `$ gmaps_scrapper `.
+    outfile = ind_sort_by + "_gm_reviews.csv"
+    targetfile = open(path + outfile, mode="w", encoding="utf-8", newline="\n")
+    writer = csv.writer(targetfile, quoting=csv.QUOTE_MINIMAL)
 
-    This is your program's entry point.
+    if source_field:
+        h = HEADER_W_SOURCE
+    else:
+        h = HEADER
+    writer.writerow(h)
 
-    You can change this function to do whatever you want.
-    Examples:
-        * Run a test suite
-        * Run a server
-        * Do some other stuff
-        * Run a command line application (Click, Typer, ArgParse)
-        * List all available tasks
-        * Run an application (Flask, FastAPI, Django, etc.)
-    """
-    print("This will do something")
+    return writer
